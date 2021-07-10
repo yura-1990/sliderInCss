@@ -13,13 +13,12 @@ body {
     height: 600px;
     overflow: hidden;
     border: 10px solid white;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
 }
 
 .navigation {
@@ -42,9 +41,10 @@ body {
     opacity: 0.5;
     border-radius: 50%;
     transition: all 0.4s ease;
+
 }
 
-.bar:hover{
+.bar:hover {
     opacity: 0.9;
     transform: scale(1.3);
 }
@@ -55,32 +55,87 @@ input[name="r"] {
     visibility: hidden;
 }
 
-.slides{
-    width: 400%;    
+.slides {
+    width: 400%;
     height: 100%;
     display: flex;
 }
 
-.slide{
+.slide {
     width: 25%;
     transition: all .6s ease;
     object-fit: cover;
 }
 
-.slide img{
+.slide img {
     width: 100%;
     height: 100%;
 }
 
-#r1:checked ~ .s1 {
+#r1:checked~.s1 {
     margin-left: 0;
 }
-#r2:checked ~ .s1 {
+
+#r2:checked~.s1 {
     margin-left: -25%;
 }
-#r3:checked ~ .s1 {
+
+#r3:checked~.s1 {
     margin-left: -50%;
 }
-#r4:checked ~ .s1 {
+
+#r4:checked~.s1 {
     margin-left: -75%;
+}
+
+/* =====< Slider ended >===== */
+/* ===< Accordion starts >=== */
+
+.wrapper {
+    max-width: 1000px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.accordion {
+    margin-top: 50px;
+}
+
+.accordion-item {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.accordion-item__input {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+}
+
+.accordion-item__trigger {
+    padding: 20px;
+    border: 1px solid black;
+    display: block;
+}
+
+.accordion-item__content {
+    padding: 20px;
+    border: 1px solid black;
+    border-top: none;
+    /* display: none; */
+    height: 0;
+    transform: scaleY(0);
+    transition: 0.5s ease-in-out;
+}
+
+.accordion-item__input:checked~.accordion-item__content {
+    transform: scaleY(1);
+    height: max-content;
+    background: #ddd;
+}
+
+.accordion-item__input:checked~.accordion-item__trigger {
+    background: #ddd;
 }
